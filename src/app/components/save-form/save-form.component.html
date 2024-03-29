@@ -1,0 +1,45 @@
+<div>
+  <form [formGroup]="saveForm" (ngSubmit)="onSubmit()">
+    <label>
+      Título:
+      <input type="text" name="title" formControlName="title">
+    </label>
+
+    <label>
+      Autor:
+      <input type="text" name="author" formControlName="author">
+    </label>
+
+    <label>
+      Imagen:
+      <input type="text" name="image" readonly value="https://picsum.photos/480/640" formControlName="image">
+    </label>
+
+    <label>
+      Género:
+      <input type="text" name="genre" formControlName="genre">
+    </label>
+
+    <label>
+      ISBN:
+      <input type="text" name="isbn" formControlName="isbn">
+    </label>
+
+    <label>
+      Fecha de publicación:
+      <input type="text" name="published" formControlName="published">
+    </label>
+
+    <label>
+      Editora:
+      <input type="text" name="publisher" formControlName="publisher">
+    </label>
+
+    <label>
+      Descripción:
+      <input type="text" name="description" formControlName="description">
+    </label>
+
+    <button type="submit">Enviar</button>
+  </form>
+</div>

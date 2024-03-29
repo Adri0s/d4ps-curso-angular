@@ -1,0 +1,18 @@
+<div class="card text-center">
+  <div class="card-header">
+    <h2>Confirmación de eliminación</h2>
+  </div>
+
+  <div class="card-body d-flex align-items-center">
+    <div style="margin-left: 20px;">
+      <div style="display: flex;">
+        <p>¿Estás seguro de que quieres eliminar este libro?</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-footer">
+    <button mat-button style="margin-right: 10px; background-color: #f44336; color: white; border: none;" (click)="onNoClick()">No</button>
+    <button mat-button style="background-color: #4caf50; color: white; border: none;" cdkFocusInitial (click)="onYesClick()">Sí</button>
+  </div>
+</div>

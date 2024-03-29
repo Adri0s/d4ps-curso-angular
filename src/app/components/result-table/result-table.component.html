@@ -1,0 +1,36 @@
+<div class="result-table" *ngIf="searchResults.length; else noResults">
+  <table>
+    <thead>
+      <tr>
+        <th>Título</th>
+        <th>Autor</th>
+        <th>Género</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of searchResults">
+        <td>{{item.title}}</td>
+        <td>{{item.author}}</td>
+        <td>{{item.genre}}</td>
+        <td>
+          <button mat-icon-button mat-button (click)="openDetailsModal(item)">
+            <mat-icon>search</mat-icon>
+          </button>
+          <button mat-icon-button mat-button (click)="openEditForm(item)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button mat-button (click)="confirmDelete(item)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<button class="new-button" routerLink="/save">Nuevo</button>
+
+<ng-template #noResults>
+  <p class="no-results-message result-table">No hay coincidencias...</p>
+</ng-template>

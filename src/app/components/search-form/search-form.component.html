@@ -1,0 +1,27 @@
+<form>
+  <input class="search-title" name="search" [(ngModel)]="title" placeholder="Buscar por título" />
+
+  <div class="search-btn-container">
+    <button (click)="handleSearch()">Buscar</button>
+    <button (click)="handleClear()">Limpiar filtros</button>
+  </div>
+  <button (click)="toggleFilters()">Más filtros</button>
+
+  <div *ngIf="showFilters">
+    <select [(ngModel)]="genre">
+      <option value="">Género</option>
+      <!-- Hacer esto dinámico? -->
+      <option value="Ut">Ut</option>
+      <option value="Nam">Nam</option>
+      <option value="Voluptatem">Voluptatem</option>
+      <option value="Unde">Unde</option>
+      <option value="Aperiam">Aperiam</option>
+      <option value="In">In</option>
+    </select>
+
+    <input type="date" [(ngModel)]="startDate" />
+    <input type="date" [(ngModel)]="endDate" />
+    <button (click)="handleSearch()">Aplicar filtros</button>
+  </div>
+
+</form>

@@ -1,0 +1,44 @@
+<div class="card text-center">
+  <div class="card-header">
+    <h2>{{ data.book.title }}</h2>
+  </div>
+
+  <div class="card-body d-flex align-items-center">
+    <img [src]="data.book.image" class="card-img-left mr-3" [alt]="data.book.title + ' image'" style="width: 480px; height: 640px;">
+    <div style="margin-left: 20px;">
+      <div style="display: flex;">
+        <label style="padding-right: 10px;">Autor:</label>
+        <p>{{ data.book.author }}</p>
+      </div>
+
+      <div style="display: flex;">
+        <label style="padding-right: 10px;">Descripción:</label>
+        <p>{{ data.book.description }}</p>
+      </div>
+
+      <div style="display: flex;">
+        <label style="padding-right: 10px;">Género:</label>
+        <p>{{ data.book.genre }}</p>
+      </div>
+
+      <div style="display: flex;">
+        <label style="padding-right: 10px;">ISBN:</label>
+        <p>{{ data.book.isbn }}</p>
+      </div>
+
+      <div style="display: flex;">
+        <label style="padding-right: 10px;">Fecha de publicación:</label>
+        <p>{{ data.book.published }}</p>
+      </div>
+
+      <div style="display: flex;">
+        <label style="padding-right: 10px;">Editora:</label>
+        <p>{{ data.book.publisher }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-footer">
+    <button mat-button (click)="close()">Close</button>
+  </div>
+</div>

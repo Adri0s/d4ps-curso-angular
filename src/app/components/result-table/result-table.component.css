@@ -1,0 +1,39 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+th, td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+button {
+  margin: 2px;
+  color: #3f51b5;
+  cursor: pointer;
+  transition: none;
+}
+
+.no-results-message {
+  color: #999;
+  font-size: 16px;
+  text-align: center;
+}
+
+.result-table {
+  width: 80%;
+  margin: 20px auto;
+}
+
+.new-button {
+  background-color: #3f51b5;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color .3s ease;
+  margin-left: 20px;
+  padding: 10px 30px;
+}
