@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
 import { Book } from 'src/app/shared/interfaces/book';
@@ -12,7 +12,7 @@ import { BookService } from 'src/app/services/book/book.service';
   styleUrls: ['./result-table.component.css']
 })
 export class ResultTableComponent {
-  searchResults: Book[];
+  @Input() searchResults: Book[];
 
   constructor(
     private dialog: MatDialog,

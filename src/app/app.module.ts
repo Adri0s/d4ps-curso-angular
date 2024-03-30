@@ -14,6 +14,7 @@ import { ResultTableComponent } from './components/result-table/result-table.com
 import { BookService } from './services/book/book.service';
 import { BookDetailComponent } from './components/book-detail/book-detail.component';
 import { SaveFormComponent } from './components/save-form/save-form.component';
+import { SearchPageComponent } from './components/search-page/search-page.component';
 
 
 
@@ -23,7 +24,8 @@ import { SaveFormComponent } from './components/save-form/save-form.component';
     SearchFormComponent,
     ResultTableComponent,
     BookDetailComponent,
-    SaveFormComponent
+    SaveFormComponent,
+    SearchPageComponent
    ],
   imports: [
     BrowserModule,
