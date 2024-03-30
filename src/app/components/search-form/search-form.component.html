@@ -10,13 +10,7 @@
   <div *ngIf="showFilters">
     <select [(ngModel)]="genre">
       <option value="">Género</option>
-      <!-- Hacer esto dinámico? -->
-      <option value="Ut">Ut</option>
-      <option value="Nam">Nam</option>
-      <option value="Voluptatem">Voluptatem</option>
-      <option value="Unde">Unde</option>
-      <option value="Aperiam">Aperiam</option>
-      <option value="In">In</option>
+      <option *ngFor="let genre of genres" [value]="genre">{{ genre }}</option>
     </select>
 
     <input type="date" [(ngModel)]="startDate" />

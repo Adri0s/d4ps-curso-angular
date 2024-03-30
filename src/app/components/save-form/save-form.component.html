@@ -1,47 +1,50 @@
-<div>
+<div class="save-form-container">
   <form [formGroup]="saveForm" (ngSubmit)="onSubmit()">
-    <label>
-      Título:
-      <input type="text" name="title" formControlName="title">
-    </label>
+    <div class="save-form-group">
+      <label for="title">Título:</label>
+      <input type="text" id="title" name="title" formControlName="title" class="save-form-input">
+    </div>
 
-    <label>
-      Autor:
-      <input type="text" name="author" formControlName="author">
-    </label>
+    <div class="save-form-group">
+      <label for="author">Autor:</label>
+      <input type="text" id="author" name="author" formControlName="author" class="save-form-input">
+    </div>
 
-    <label>
-      Imagen:
-      <input type="text" name="image" readonly value="https://picsum.photos/480/640" formControlName="image">
-    </label>
+    <div class="save-form-group">
+      <label for="image">Imagen:</label>
+      <input type="text" id="image" name="image" formControlName="image" class="save-form-input">
+    </div>
 
-    <label>
-      Género:
-      <input type="text" name="genre" formControlName="genre">
-    </label>
+    <div class="save-form-group">
+      <label for="genre">Género:</label>
+      <select name="genre" id="genre" formControlName="genre" class="save-form-input">
+        <option value=""></option>
+        <option *ngFor="let genre of genres" [value]="genre">{{ genre }}</option>
+      </select>
+    </div>
 
-    <label>
-      ISBN:
-      <input type="text" name="isbn" formControlName="isbn">
-    </label>
+    <div class="save-form-group">
+      <label for="isbn">ISBN:</label>
+      <input type="text" id="isbn" name="isbn" formControlName="isbn" class="save-form-input">
+    </div>
 
-    <label>
-      Fecha de publicación:
-      <input type="text" name="published" formControlName="published">
-    </label>
+    <div class="save-form-group">
+      <label for="published">Fecha de publicación:</label>
+      <input type="date" id="published" name="published" formControlName="published" class="save-form-input">
+    </div>
 
-    <label>
-      Editora:
-      <input type="text" name="publisher" formControlName="publisher">
-    </label>
+    <div class="save-form-group">
+      <label for="publisher">Editora:</label>
+      <input type="text" id="publisher" name="publisher" formControlName="publisher" class="save-form-input">
+    </div>
 
-    <label>
-      Descripción:
-      <input type="text" name="description" formControlName="description">
-    </label>
+    <div class="save-form-group">
+      <label for="description">Descripción:</label>
+      <input type="text" id="description" name="description" formControlName="description" class="save-form-input">
+    </div>
 
-    <button type="submit">Enviar</button>
+    <button type="submit" class="save-form-submit-btn">Enviar</button>
   </form>
 
-  <button (click)="onBack()">Volver</button>
+  <button (click)="onBack()" class="save-form-back-btn">Volver</button>
 </div>

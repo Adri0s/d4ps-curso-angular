@@ -15,6 +15,8 @@ export class SearchFormComponent {
   startDate: string = '';
   endDate: string = '';
   showFilters: boolean = false;
+  /* Esta lista habría que definirla en un lugar común */
+  genres = ['Ut', 'Nam', 'Voluptatem', 'Unde', 'Aperiam', 'In'];
 
   constructor(private libroService: BookService) {}
 
