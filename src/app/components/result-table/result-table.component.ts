@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 import { Book } from 'src/app/shared/interfaces/book';
 import { BookDetailComponent } from '../book-detail/book-detail.component';
@@ -16,7 +17,8 @@ export class ResultTableComponent {
 
   constructor(
     private dialog: MatDialog,
-    private bookService: BookService
+    private bookService: BookService,
+    private router: Router
     ) {
       this.searchResults = [];
   }
@@ -30,7 +32,7 @@ export class ResultTableComponent {
   }
 
   openEditForm(item: Book) {
-    // Implementar lógica para abrir formulario de edición
+    this.router.navigate(['/save'], { state: {item}});
   }
 
   confirmDelete(item: Book) {

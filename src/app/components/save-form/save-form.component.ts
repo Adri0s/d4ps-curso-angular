@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Book } from 'src/app/shared/interfaces/book';
 
 @Component({
   selector: 'app-save-form',
@@ -23,8 +24,18 @@ export class SaveFormComponent {
   });
 
   constructor(
-    private router: Router
+    private router: Router,
+    private formBuilder: FormBuilder
   ) { }
+
+  ngOnInit() {
+    this.saveForm = this.formBuilder.group({});
+
+    const item: Book = history.state.item;
+    if (item) {
+      this.saveForm.patchValue(item);
+    }
+  }
 
   onSubmit(): void {
     // Aquí puedes hacer la lógica para agregar el registro a la base de datos
