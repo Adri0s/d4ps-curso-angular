@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-save-form',
@@ -18,8 +19,16 @@ export class SaveFormComponent {
     description:new FormControl('')
   });
 
+  constructor(
+    private router: Router
+  ) { }
+
   onSubmit(): void {
     // Aquí puedes hacer la lógica para agregar el registro a la base de datos
     console.log(this.saveForm.value);
+  }
+
+  onBack(): void {
+    this.router.navigate(['']);
   }
 }
