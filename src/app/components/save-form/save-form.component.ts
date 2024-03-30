@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
+import { BookService } from 'src/app/services/book/book.service';
 import { Book } from 'src/app/shared/interfaces/book';
 
 @Component({
@@ -19,7 +21,8 @@ export class SaveFormComponent implements OnInit {
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
-    private route: ActivatedRoute
+    private bookService: BookService,
+    private snackBar: MatSnackBar
   ) { }
 
   ngOnInit() {
@@ -46,7 +49,29 @@ export class SaveFormComponent implements OnInit {
 
   onSubmit(): void {
     if (this.saveForm.valid) {
-      // todo
+      const book: Book = this.saveForm.getRawValue();
+
+      if (book.id) {
+        this.bookService.updateBook(book).subscribe(updatedBook => {
+          this.bookService.getById(updatedBook.id).subscribe(bbddBook => {
+            this.saveForm.patchValue(bbddBook);
+          });
+          this.snackBar.open('Actualizado correctamente', '', {
+            duration: 2000,
+            verticalPosition: 'top'
+          });
+        });
+      } else {
+        this.bookService.createBook(book).subscribe(createdBook => {
+          this.bookService.getById(createdBook.id).subscribe(bbddBook => {
+            this.saveForm.patchValue(bbddBook);
+          });
+          this.snackBar.open('Creado correctamente', '', {
+            duration: 2000,
+            verticalPosition: 'top'
+          });
+        });
+      }
     } else {
       Object.values(this.saveForm.controls).forEach(control => {
         control.markAsTouched();

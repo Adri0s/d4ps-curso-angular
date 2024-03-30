@@ -8,6 +8,15 @@ import { Book } from 'src/app/shared/interfaces/book';
 export class BookService {
   constructor(private http: HttpClient) {}
 
+  getById(id: number): Observable<Book> {
+    return this.http.get<Book>(`http://localhost:3000/libros/${id}`)
+      .pipe(
+        catchError(error => {
+          return throwError(error);
+        })
+      );
+  }
+
   findBooks(params: HttpParams): Observable<Book[]> {
     return this.http.get<Book[]>('http://localhost:3000/libros', { params })
       .pipe(

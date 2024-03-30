@@ -15,6 +15,7 @@ import { BookService } from './services/book/book.service';
 import { BookDetailComponent } from './components/book-detail/book-detail.component';
 import { SaveFormComponent } from './components/save-form/save-form.component';
 import { SearchPageComponent } from './components/search-page/search-page.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 
@@ -36,7 +37,8 @@ import { SearchPageComponent } from './components/search-page/search-page.compon
     MatDialogModule,
     MatIconModule,
     MatButtonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSnackBarModule
   ],
   providers: [BookService],
   bootstrap: [AppComponent]
