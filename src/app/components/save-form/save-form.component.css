@@ -63,3 +63,16 @@ label {
 .save-form-back-btn:hover {
   background-color: #999;
 }
+
+.is-invalid {
+  border-color: #dc3545;
+}
+
+.error-placeholder::placeholder {
+  color: red;
+  font-size: 12px;
+}
+
+.error-color {
+  color: red;
+}

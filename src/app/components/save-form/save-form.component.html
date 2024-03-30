@@ -1,41 +1,105 @@
 <div class="save-form-container">
   <form [formGroup]="saveForm" (ngSubmit)="onSubmit()">
+    <input type="hidden" id="id" name="id" formControlName="id">
+
     <div class="save-form-group">
       <label for="title">Título:</label>
-      <input type="text" id="title" name="title" formControlName="title" class="save-form-input">
+      <input
+        type="text"
+        id="title"
+        name="title"
+        formControlName="title"
+        class="save-form-input form-control"
+        [ngClass]="{'is-invalid': saveForm.controls.title.invalid && saveForm.controls.title.touched,
+          'error-placeholder': saveForm.controls.title.invalid && saveForm.controls.title.touched}"
+        [placeholder]="saveForm.controls.title.invalid && saveForm.controls.title.touched ? 'Campo requerido' : ''"
+        >
     </div>
 
     <div class="save-form-group">
       <label for="author">Autor:</label>
-      <input type="text" id="author" name="author" formControlName="author" class="save-form-input">
+      <input
+        type="text"
+        id="author"
+        name="author"
+        formControlName="author"
+        class="save-form-input"
+        [ngClass]="{'is-invalid': saveForm.controls.author.invalid && saveForm.controls.author.touched,
+          'error-placeholder': saveForm.controls.author.invalid && saveForm.controls.author.touched}"
+        [placeholder]="saveForm.controls.author.invalid && saveForm.controls.author.touched ? 'Campo requerido' : ''"
+        >
     </div>
 
     <div class="save-form-group">
       <label for="image">Imagen:</label>
-      <input type="text" id="image" name="image" formControlName="image" class="save-form-input">
+      <input
+        type="text"
+        id="image"
+        name="image"
+        formControlName="image"
+        class="save-form-input"
+        [ngClass]="{'is-invalid': saveForm.controls.image.invalid && saveForm.controls.image.touched,
+          'error-placeholder': saveForm.controls.image.invalid && saveForm.controls.image.touched}"
+        [placeholder]="saveForm.controls.image.invalid && saveForm.controls.image.touched ? 'Campo requerido' : ''"
+        >
     </div>
 
     <div class="save-form-group">
       <label for="genre">Género:</label>
-      <select name="genre" id="genre" formControlName="genre" class="save-form-input">
-        <option value=""></option>
+      <select
+        name="genre"
+        id="genre"
+        formControlName="genre"
+        class="save-form-input"
+        [ngClass]="{'is-invalid': saveForm.controls.genre.invalid && saveForm.controls.genre.touched, 'error-color': saveForm.controls.genre.invalid && saveForm.controls.genre.touched && !isFocused}"
+        (focus)="isFocused = true"
+        (blur)="isFocused = false"
+        >
+        <option value="">Selecciona un género...</option>
         <option *ngFor="let genre of genres" [value]="genre">{{ genre }}</option>
       </select>
     </div>
 
     <div class="save-form-group">
       <label for="isbn">ISBN:</label>
-      <input type="text" id="isbn" name="isbn" formControlName="isbn" class="save-form-input">
+      <input
+        type="text"
+        id="isbn"
+        name="isbn"
+        formControlName="isbn"
+        class="save-form-input"
+        [ngClass]="{'is-invalid': saveForm.controls.isbn.invalid && saveForm.controls.isbn.touched,
+          'error-placeholder': saveForm.controls.isbn.invalid && saveForm.controls.isbn.touched}"
+        [placeholder]="saveForm.controls.isbn.invalid && saveForm.controls.isbn.touched ? 'Campo requerido' : ''"
+        >
     </div>
 
     <div class="save-form-group">
       <label for="published">Fecha de publicación:</label>
-      <input type="date" id="published" name="published" formControlName="published" class="save-form-input">
+      <input
+        type="date"
+        id="published"
+        name="published"
+        formControlName="published"
+        class="save-form-input"
+        [ngClass]="{'is-invalid': saveForm.controls.published.invalid && saveForm.controls.published.touched,
+          'error-placeholder': saveForm.controls.published.invalid && saveForm.controls.published.touched}"
+        [placeholder]="saveForm.controls.published.invalid && saveForm.controls.published.touched ? 'Campo requerido' : ''"
+        >
     </div>
 
     <div class="save-form-group">
       <label for="publisher">Editora:</label>
-      <input type="text" id="publisher" name="publisher" formControlName="publisher" class="save-form-input">
+      <input
+        type="text"
+        id="publisher"
+        name="publisher"
+        formControlName="publisher"
+        class="save-form-input"
+        [ngClass]="{'is-invalid': saveForm.controls.publisher.invalid && saveForm.controls.publisher.touched,
+          'error-placeholder': saveForm.controls.publisher.invalid && saveForm.controls.publisher.touched}"
+        [placeholder]="saveForm.controls.publisher.invalid && saveForm.controls.publisher.touched ? 'Campo requerido' : ''"
+        >
     </div>
 
     <div class="save-form-group">

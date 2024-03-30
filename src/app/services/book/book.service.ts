@@ -12,7 +12,6 @@ export class BookService {
     return this.http.get<Book[]>('http://localhost:3000/libros', { params })
       .pipe(
         catchError(error => {
-          console.error(error);
           return throwError(error);
         })
       );

@@ -18,7 +18,7 @@ export class SearchFormComponent {
   /* Esta lista habría que definirla en un lugar común */
   genres = ['Ut', 'Nam', 'Voluptatem', 'Unde', 'Aperiam', 'In'];
 
-  constructor(private libroService: BookService) {}
+  constructor(private bookService: BookService) {}
 
   @Output()
   searchEvent = new EventEmitter<Book[]>();
@@ -39,7 +39,7 @@ export class SearchFormComponent {
       params = params.append('published_lte', this.endDate);
     }
 
-    this.libroService.findBooks(params)
+    this.bookService.findBooks(params)
       .subscribe(response => {
         this.searchEvent.emit(response);
       });
