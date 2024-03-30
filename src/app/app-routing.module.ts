@@ -6,7 +6,8 @@ import { SearchPageComponent } from './components/search-page/search-page.compon
 
 const routes: Routes = [
   {path: '', component: SearchPageComponent},
-  {path: 'save', component: SaveFormComponent}
+  {path: 'save', component: SaveFormComponent},
+  {path: '**', redirectTo: ''}
 ];
 
 @NgModule({

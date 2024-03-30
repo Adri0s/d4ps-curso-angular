@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+
 import { Book } from 'src/app/shared/interfaces/book';
 
 @Component({
@@ -8,20 +9,10 @@ import { Book } from 'src/app/shared/interfaces/book';
   templateUrl: './save-form.component.html',
   styleUrls: ['./save-form.component.css']
 })
-export class SaveFormComponent {
+export class SaveFormComponent implements OnInit {
   /* Esta lista habría que definirla en un lugar común */
   genres = ['Ut', 'Nam', 'Voluptatem', 'Unde', 'Aperiam', 'In'];
-
-  saveForm = new FormGroup({
-    title:      new FormControl(''),
-    author:     new FormControl(''),
-    image:      new FormControl({value: 'https://picsum.photos/480/640', disabled: true}),
-    genre:      new FormControl(''),
-    isbn:       new FormControl(''),
-    published:  new FormControl(new Date().toISOString().split('T')[0]),
-    publisher:  new FormControl(''),
-    description:new FormControl('')
-  });
+  saveForm!: FormGroup;
 
   constructor(
     private router: Router,
@@ -29,7 +20,16 @@ export class SaveFormComponent {
   ) { }
 
   ngOnInit() {
-    this.saveForm = this.formBuilder.group({});
+    this.saveForm = this.formBuilder.group({
+      title:      new FormControl(''),
+      author:     new FormControl(''),
+      image:      new FormControl({value: 'https://picsum.photos/480/640', disabled: true}),
+      genre:      new FormControl(''),
+      isbn:       new FormControl(''),
+      published:  new FormControl(new Date().toISOString().split('T')[0]),
+      publisher:  new FormControl(''),
+      description:new FormControl('')
+    });
 
     const item: Book = history.state.item;
     if (item) {

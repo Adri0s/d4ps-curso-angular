@@ -32,7 +32,7 @@ export class ResultTableComponent {
   }
 
   openEditForm(item: Book) {
-    this.router.navigate(['/save'], { state: {item}});
+    this.router.navigate(['save'], { state: {item}});
   }
 
   confirmDelete(item: Book) {
@@ -45,5 +45,9 @@ export class ResultTableComponent {
         });
       }
     });
+  }
+
+  onNewBtnClick() {
+    this.router.navigate(['save']);
   }
 }
