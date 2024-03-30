@@ -21,10 +21,6 @@ export class ResultTableComponent {
       this.searchResults = [];
   }
 
-  onSearchResults(results: Book[]) {
-    this.searchResults = results;
-  }
-
   openDetailsModal(item: Book) {
     this.dialog.open(BookDetailComponent, {
       data: {
