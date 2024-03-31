@@ -38,6 +38,10 @@ button {
   padding: 10px 30px;
 }
 
+.new-button:hover {
+  background-color: #303f9f;
+}
+
 ::ng-deep .mat-button-focus-overlay {
   background-color: transparent !important;
 }
