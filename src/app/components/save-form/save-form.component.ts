@@ -57,8 +57,9 @@ export class SaveFormComponent implements OnInit {
             this.saveForm.patchValue(bbddBook);
           });
           this.snackBar.open('Actualizado correctamente', '', {
-            duration: 2000,
-            verticalPosition: 'top'
+            duration: 3000,
+            verticalPosition: 'top',
+            panelClass: ['snackbar-center-text']
           });
         });
       } else {
@@ -67,8 +68,9 @@ export class SaveFormComponent implements OnInit {
             this.saveForm.patchValue(bbddBook);
           });
           this.snackBar.open('Creado correctamente', '', {
-            duration: 2000,
-            verticalPosition: 'top'
+            duration: 3000,
+            verticalPosition: 'top',
+            panelClass: ['snackbar-center-text']
           });
         });
       }
