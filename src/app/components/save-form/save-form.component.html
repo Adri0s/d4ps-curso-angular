@@ -51,7 +51,8 @@
         id="genre"
         formControlName="genre"
         class="save-form-input"
-        [ngClass]="{'is-invalid': saveForm.controls.genre.invalid && saveForm.controls.genre.touched, 'error-color': saveForm.controls.genre.invalid && saveForm.controls.genre.touched && !isFocused}"
+        [ngClass]="{'is-invalid': saveForm.controls.genre.invalid && saveForm.controls.genre.touched,
+          'error-color': saveForm.controls.genre.invalid && saveForm.controls.genre.touched && !isFocused}"
         (focus)="isFocused = true"
         (blur)="isFocused = false"
         >

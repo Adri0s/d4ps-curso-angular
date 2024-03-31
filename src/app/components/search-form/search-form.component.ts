@@ -23,6 +23,18 @@ export class SearchFormComponent {
   @Output()
   searchEvent = new EventEmitter<Book[]>();
 
+  ngOnInit() {
+    // handle last search
+    const params = this.bookService.getParams();
+
+    if (params) {
+      this.bookService.findBooks(params)
+        .subscribe(response => {
+          this.searchEvent.emit(response);
+        });
+    }
+  }
+
   handleSearch() {
     let params = new HttpParams();
 
@@ -38,6 +50,9 @@ export class SearchFormComponent {
     if (this.endDate) {
       params = params.append('published_lte', this.endDate);
     }
+
+    // handle last search
+    this.bookService.setParams(params);
 
     this.bookService.findBooks(params)
       .subscribe(response => {

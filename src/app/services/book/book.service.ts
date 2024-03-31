@@ -6,9 +6,13 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, switchMap } from 'rxjs/operators';
 import { Book } from 'src/app/shared/interfaces/book';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class BookService {
   private apiUrl = 'http://localhost:3000/libros';
+  private duplicateIsbnError = 'Ya existe un libro con ese ISBN';
+  private params!: HttpParams;
 
   constructor(
     private http: HttpClient,
@@ -46,17 +50,17 @@ export class BookService {
     return this.http.get<Book[]>(`${this.apiUrl}?isbn=${book.isbn}`).pipe(
       switchMap((books: Book[]) => {
         if (books.length > 0) {
-          this.snackBar.open('Ya existe un libro con ese ISBN', '', {
+          this.snackBar.open(this.duplicateIsbnError, '', {
             duration: 3000,
             panelClass: ['error-snackbar']
           });
-          return throwError('Ya existe un libro con ese ISBN');
+          return throwError(this.duplicateIsbnError);
         } else {
           return this.http.post<Book>(this.apiUrl, book);
         }
       }),
       catchError(error => {
-        if (error !== 'Ya existe un libro con ese ISBN') {
+        if (error !== this.duplicateIsbnError) {
           this.snackBar.open('Ocurrió un error inesperado', '', {
             duration: 3000,
             panelClass: ['error-snackbar']
@@ -73,5 +77,14 @@ export class BookService {
         return throwError(error);
       })
     );
+  }
+
+  // handle last search
+  setParams(params: HttpParams) {
+    this.params = params;
+  }
+
+  getParams(): HttpParams {
+    return this.params;
   }
 }

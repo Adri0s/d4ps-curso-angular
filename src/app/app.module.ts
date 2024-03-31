@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,7 +16,6 @@ import { BookService } from './services/book/book.service';
 import { BookDetailComponent } from './components/book-detail/book-detail.component';
 import { SaveFormComponent } from './components/save-form/save-form.component';
 import { SearchPageComponent } from './components/search-page/search-page.component';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 
