@@ -37,3 +37,11 @@ button {
   margin-left: 20px;
   padding: 10px 30px;
 }
+
+::ng-deep .mat-button-focus-overlay {
+  background-color: transparent !important;
+}
+
+::ng-deep .mat-ripple-element {
+  display: none !important;
+}
