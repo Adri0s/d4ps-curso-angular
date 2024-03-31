@@ -38,7 +38,7 @@ export class SaveFormComponent implements OnInit {
       isbn:       new FormControl({value: '', disabled: this.isEditMode}, Validators.required),
       published:  new FormControl(new Date().toISOString().split('T')[0], Validators.required),
       publisher:  new FormControl('', Validators.required),
-      description:new FormControl('', Validators.required)
+      description:new FormControl('')
     });
 
 
