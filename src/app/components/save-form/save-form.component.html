@@ -9,7 +9,7 @@
         id="title"
         name="title"
         formControlName="title"
-        class="save-form-input form-control"
+        class="save-form-input"
         [ngClass]="{'is-invalid': saveForm.controls.title.invalid && saveForm.controls.title.touched,
           'error-placeholder': saveForm.controls.title.invalid && saveForm.controls.title.touched}"
         [placeholder]="saveForm.controls.title.invalid && saveForm.controls.title.touched ? 'Campo requerido' : ''"
